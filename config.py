@@ -7,19 +7,19 @@ class Config(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", "29234663")
     API_HASH  = os.environ.get("API_HASH", "94235bdf61b1b42e67b113b031db5ba5")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7726208738:AAFxJHwOatxL23lrFHAmgCgzPqB1crj84Nc") 
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7038431984:AAEw7467PXtKmuL3X02GHsi1MMa-MZHBhwc") 
 
     # database config
     DB_NAME = os.environ.get("DB_NAME","codeflix")     
-    DB_URL  = os.environ.get("DB_URL","mongodb+srv://Toonpro12:animebash@cluster0.e6hpn8l.mongodb.net/?retryWrites=true&w=majority")
-    PORT = os.environ.get("PORT", "8080")
+    DB_URL  = os.environ.get("DB_URL","mongodb+srv://sharku:zKKosLfBvResoqhF@cluster0.jped6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    PORT = os.environ.get("PORT", "8081")
  
     # other configs
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://graph.org/file/29a3acbbab9de5f45a5fe.jpg")
     ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5574593875').split()]
     FORCE_SUB_CHANNELS = os.environ.get('FORCE_SUB_CHANNELS', 'codeflix_bots,codeflixsupport,anime_cruise_netflix').split(',')
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002305140543"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002368843413"))
     
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", "True"))
