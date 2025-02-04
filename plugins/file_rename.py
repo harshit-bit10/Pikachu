@@ -218,7 +218,7 @@ async def auto_rename_files(client, message):
         path = renamed_file_path
 
         # Add metadata if needed
-        metadata_added = False
+        metadata_added = True
         _bool_metadata = await codeflixbots.get_metadata(user_id)
         if _bool_metadata:
             metadata = await codeflixbots.get_metadata_code(user_id)
