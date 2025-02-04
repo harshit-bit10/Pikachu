@@ -28,7 +28,7 @@ pattern3_2 = re.compile(r'(?:\s*-\s*(\d+)\s*)')
 pattern4 = re.compile(r'S(\d+)[^\d]*(\d+)', re.IGNORECASE)
 # Pattern X: Standalone Episode Number
 patternX = re.compile(r'(\d+)')
-#QUALITY PATTERNS 
+# QUALITY PATTERNS 
 # Pattern 5: 3-4 digits before 'p' as quality
 pattern5 = re.compile(r'\b(?:.*?(\d{3,4}[^\dp]*p).*?|.*?(\d{3,4}p))\b', re.IGNORECASE)
 # Pattern 6: Find 4k in brackets or parentheses
@@ -219,30 +219,26 @@ async def auto_rename_files(client, message):
 
         # Add metadata if needed
         metadata_added = True
-        _bool_metadata = await codeflixbots.get_metadata(user_id)
-        if _bool_metadata:
-            metadata = await codeflixbots.get_metadata_code(user_id)
-            if metadata:
-                cmd = f'ffmpeg -i "{renamed_file_path}"  -map 0 -c:s copy -c:a copy -c:v copy -metadata title="SharkToonsIndia - " -metadata author="SharkToonsIndia - " -metadata:s:s title="SharkToonsIndia - " -metadata:s:a title="SharkToonsIndia - " -metadata:s:v title="SharkToonsIndia - "  "{metadata_file_path}"'
-                try:
-                    process = await asyncio.create_subprocess_shell(
-                        cmd,
-                        stdout=asyncio.subprocess.PIPE,
-                        stderr=asyncio.subprocess.PIPE,
-                    )
-                    stdout, stderr = await process.communicate()
-                    if process.returncode == 0:
-                        metadata_added = True
-                        path = metadata_file_path
-                    else:
-                        error_message = stderr.decode()
-                        await download_msg.edit(f"**Metadata Error:**\n{error_message}")
-                except asyncio.TimeoutError:
-                    await download_msg.edit("**ffmpeg command timed out.**")
-                    return
-                except Exception as e:
-                    await download_msg.edit(f"**Exception occurred:**\n{str(e)}")
-                    return
+        cmd = f'ffmpeg -i "{renamed_file_path}"  -map 0 -c:s copy -c:a copy -c:v copy -metadata title="SharkToonsIndia - " -metadata author="SharkToonsIndia - " -metadata:s:s title="SharkToonsIndia - " -metadata:s:a title="SharkToonsIndia - " -metadata:s:v title="SharkToonsIndia - "  "{metadata_file_path}"'
+        try:
+            process = await asyncio.create_subprocess_shell(
+                cmd,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+            )
+            stdout, stderr = await process.communicate()
+            if process.returncode == 0:
+                metadata_added = True
+                path = metadata_file_path
+            else:
+                error_message = stderr.decode()
+                await download_msg.edit(f"**Metadata Error:**\n{error_message}")
+        except asyncio.TimeoutError:
+            await download_msg.edit("**ffmpeg command timed out.**")
+            return
+        except Exception as e:
+            await download_msg.edit(f"**Exception occurred:**\n{str(e)}")
+            return
         else:
             metadata_added = True
 
@@ -331,3 +327,5 @@ async def auto_rename_files(client, message):
         if ph_path and os.path.exists(ph_path):
             os.remove(ph_path)
         del renaming_operations[file_id]
+
+   
