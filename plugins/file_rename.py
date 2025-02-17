@@ -228,7 +228,7 @@ async def auto_rename_files(client, message):
             )
             stdout, stderr = await process.communicate()
             if process.returncode == 0:
-                metadata_added = True
+                metadata_added = False
                 path = metadata_file_path
             else:
                 error_message = stderr.decode()
