@@ -7,12 +7,12 @@ class Config(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", "29234663")
     API_HASH  = os.environ.get("API_HASH", "94235bdf61b1b42e67b113b031db5ba5")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7038431984:AAEPTDbbpimXDNxQI0QIiLuB9unjeXC21xA") 
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7244848756:AAEWKHmrluM7fErkl3w84GXicJz8CxepCFE") 
 
     # database config
     DB_NAME = os.environ.get("DB_NAME","codeflix")     
     DB_URL  = os.environ.get("DB_URL","mongodb+srv://sharku:zKKosLfBvResoqhF@cluster0.jped6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    PORT = os.environ.get("PORT", "8081")
+    PORT = os.environ.get("PORT", "8088")
  
     # other configs
     BOT_UPTIME  = time.time()
