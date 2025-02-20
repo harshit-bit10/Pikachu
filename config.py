@@ -12,7 +12,7 @@ class Config(object):
     # database config
     DB_NAME = os.environ.get("DB_NAME","codeflix")     
     DB_URL  = os.environ.get("DB_URL","mongodb+srv://sharku:zKKosLfBvResoqhF@cluster0.jped6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-    PORT = os.environ.get("PORT", "8088")
+    PORT = os.environ.get("PORT", "8089")
  
     # other configs
     BOT_UPTIME  = time.time()
